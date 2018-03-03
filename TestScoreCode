@@ -1,0 +1,61 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AverageOfNonSpecificNumberList
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter a test score between 0 and 100:");
+            int i, j; 
+
+            List<double> testScores = new List<double>();
+            for (i = 0; i < i+1; i++)
+            {
+                Console.Write($"Enter the test score {i + 1}:");
+                double userTestInput = Convert.ToDouble(Console.ReadLine());
+                while (userTestInput > 100 || userTestInput < 0)
+                {
+                    Console.Write("Invalid entry! Please enter a number" +
+                        " between 0 and 100:");
+                    userTestInput = Convert.ToDouble(Console.ReadLine());
+                }
+
+                testScores.Add(userTestInput);
+                
+                if (testScores.Average() >= 90)
+                {
+                    Console.WriteLine($"You enter {i + 1} test score, and the average score is: " +
+                        $"{testScores.Average()}, and the final letter grade is A.");
+                }
+                else if (testScores.Average() >= 80)
+                {
+                    Console.WriteLine($"You enter {i + 1} test score, and the average score is: " +
+                        $"{testScores.Average()}, and the final letter grade is B.");
+                }
+                else if (testScores.Average() >= 70)
+                {
+                    Console.WriteLine($"You enter {i + 1} test score, and the average score is: " +
+                        $"{testScores.Average()}, and the final letter grade is C.");
+                }
+                else if (testScores.Average() >= 60)
+                {
+                    Console.WriteLine($"You enter {i+1} test score, and the average is score: " +
+                        $"{testScores.Average()}, and the final letter grade is D.");
+                }
+                else 
+                {
+                    Console.WriteLine($"You enter {i + 1} test score. The average score is: " +
+                        $"{testScores.Average()}and the final letter grade is F.");
+                  
+                }
+                
+            }
+            Console.ReadLine();
+        }
+    }
+}
